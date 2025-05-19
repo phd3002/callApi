@@ -1,0 +1,25 @@
+package com.post.callApi.service.impl;
+
+import com.post.callApi.entity.Product;
+import com.post.callApi.repository.ProductRepository;
+import com.post.callApi.service.ProductService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class ProductServiceImpl implements ProductService {
+    final private ProductRepository productRepository;
+
+    @Override
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
+
+    @Override
+    public Product saveProduct(Product p) {
+        return productRepository.save(p);
+    }
+}
