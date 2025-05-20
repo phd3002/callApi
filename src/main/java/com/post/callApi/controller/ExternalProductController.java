@@ -23,5 +23,20 @@ public class ExternalProductController {
     public List<ExternalProduct> getAllExternalProducts() {
         return externalProductService.getAll();
     }
+
+    /**
+     * POST /api/external-products
+     * 🔹 Mô tả: Lưu sản phẩm từ API ngoài vào DB.
+     * 🔹 Body:
+     * {
+     *     "product_name": "string",
+     *     "product_category": "string",
+     *     "product_price": number
+     * }
+     */
+    @PostMapping
+    public ExternalProduct createExternalProduct(@RequestBody ExternalProduct externalProduct) {
+        return externalProductService.save(externalProduct);
+    }
 }
 

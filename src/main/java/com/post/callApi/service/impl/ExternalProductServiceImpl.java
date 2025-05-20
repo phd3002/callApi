@@ -24,18 +24,18 @@ public class ExternalProductServiceImpl implements ExternalProductService {
         List<ExternalProduct> externalList = externalRepo.findAll();
 
         for (ExternalProduct ext : externalList) {
-            if (!productRepo.existsByName(ext.getName())) {
+            if (!productRepo.existsByName(ext.getProduct_name())) {
                 // Nếu chưa có → thêm mới
                 Product product = new Product();
-                product.setName(ext.getName());
-                product.setCategory(ext.getCategory());
-                product.setPrice(ext.getPrice());
+                product.setName(ext.getProduct_name());
+                product.setCategory(ext.getProduct_category());
+                product.setPrice(ext.getProduct_price());
                 productRepo.save(product);
                 System.out.println("🆕 Thêm mới: " + product.getName());
             } else {
-                Product existing = productRepo.findByName(ext.getName());
-                existing.setCategory(ext.getCategory());
-                existing.setPrice(ext.getPrice());
+                Product existing = productRepo.findByName(ext.getProduct_name());
+                existing.setCategory(ext.getProduct_category());
+                existing.setPrice(ext.getProduct_price());
                 productRepo.save(existing);
                 System.out.println("🔁 Cập nhật: " + existing.getName());
             }
@@ -46,6 +46,11 @@ public class ExternalProductServiceImpl implements ExternalProductService {
     @Override
     public List<ExternalProduct> getAll() {
         return externalRepo.findAll();
+    }
+
+    @Override
+    public ExternalProduct save(ExternalProduct externalProduct) {
+        return externalRepo.save(externalProduct);
     }
 }
 

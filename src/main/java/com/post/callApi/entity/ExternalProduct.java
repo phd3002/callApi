@@ -12,8 +12,8 @@ public class ExternalProduct {
     @Id
     private String id;
 
-    private String name;
-    private String category;
-    private double price;
+    private String product_name;
+    private String product_category;
+    private double product_price;
 }
 

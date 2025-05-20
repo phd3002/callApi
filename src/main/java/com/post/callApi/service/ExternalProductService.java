@@ -8,5 +8,7 @@ public interface ExternalProductService {
     void syncExternalProducts();
 
     List<ExternalProduct> getAll();
+
+    ExternalProduct save(ExternalProduct externalProduct);
 }
 

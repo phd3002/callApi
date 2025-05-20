@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/products")
 public class ProductController {
 
-    private final ProductService service;
+    private final ProductService productService;
 
-    public ProductController(ProductService service) {
-        this.service = service;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
     /**
@@ -27,7 +27,7 @@ public class ProductController {
      */
     @GetMapping
     public ProductPageResponse getPaginatedProducts(Pageable pageable) {
-        return new ProductPageResponse(service.getPaginatedProducts(pageable));
+        return new ProductPageResponse(productService.getPaginatedProducts(pageable));
     }
 
     /**
@@ -43,7 +43,7 @@ public class ProductController {
      */
     @PostMapping
     public Product createProduct(@RequestBody Product p) {
-        return service.saveProduct(p);
+        return productService.saveProduct(p);
     }
 }
 
