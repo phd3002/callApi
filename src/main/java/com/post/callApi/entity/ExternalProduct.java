@@ -13,15 +13,7 @@ public class ExternalProduct {
     private String id;
 
     private String name;
-    private String source;
+    private String category;
     private double price;
-
-    public ExternalProduct() {}
-
-    public ExternalProduct(String name, String source, double price) {
-        this.name = name;
-        this.source = source;
-        this.price = price;
-    }
 }
 
