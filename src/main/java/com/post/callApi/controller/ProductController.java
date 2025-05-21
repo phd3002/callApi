@@ -18,30 +18,30 @@ public class ProductController {
     }
 
     /**
-     * GET /api/products
+     * GET /api/products/get-all
      * 🔹 Mô tả: Lấy danh sách sản phẩm có phân trang.
      * 🔹 Params:
      *     - page (int): số trang (bắt đầu từ 0)
      *     - size (int): số lượng document mỗi trang
-     * 🔹 Trả về: JSON chứa danh sách sản phẩm và thông tin phân trang
+     * 🔹 Trả về: JSON chứa danh sách sản phẩm và thông tin phân trang.
      */
-    @GetMapping
+    @GetMapping("/get-all")
     public ProductPageResponse getPaginatedProducts(Pageable pageable) {
         return new ProductPageResponse(productService.getPaginatedProducts(pageable));
     }
 
     /**
-     * POST /api/products
+     * POST /api/products/create
      * 🔹 Mô tả: Tạo sản phẩm mới.
      * 🔹 Body:
      * {
      *     "name": "string",
      *     "category": "string",
-     *     "price": number
+     *     "price": double
      * }
      * 🔹 Trả về: Thông tin sản phẩm vừa tạo.
      */
-    @PostMapping
+    @PostMapping("/create")
     public Product createProduct(@RequestBody Product p) {
         return productService.saveProduct(p);
     }

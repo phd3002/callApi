@@ -25,7 +25,6 @@ public class ExternalProductServiceImpl implements ExternalProductService {
 
         for (ExternalProduct ext : externalList) {
             if (!productRepo.existsByName(ext.getProduct_name())) {
-                // Nếu chưa có → thêm mới
                 Product product = new Product();
                 product.setName(ext.getProduct_name());
                 product.setCategory(ext.getProduct_category());
@@ -39,7 +38,6 @@ public class ExternalProductServiceImpl implements ExternalProductService {
                 productRepo.save(existing);
                 System.out.println("🔁 Cập nhật: " + existing.getName());
             }
-
         }
     }
 

@@ -10,7 +10,6 @@ public class ExternalProductSyncService {
 
     private final ExternalProductService externalProductService;
 
-
     // Chạy mỗi phút
     @Scheduled(cron = "0 * * * * *")
     public void runSyncJob() {
