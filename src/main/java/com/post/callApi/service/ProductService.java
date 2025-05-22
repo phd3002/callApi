@@ -12,4 +12,11 @@ public interface ProductService {
     Product saveProduct(Product p);
 
     Page<Product> getPaginatedProducts(Pageable pageable);
+
+    Page<Product> searchByName(String keyword, Pageable pageable);
+
+    Page<Product> filterByPriceRange(double min, double max, Pageable pageable);
+
+    Page<Product> searchByNameAndPrice(String keyword, double min, double max, Pageable pageable);
+
 }
